@@ -5,7 +5,7 @@ Proyecto para arrancar una aplicación con Express.js
 # Instalación
 
 1 - Clonamos el repositorio
-git clone https://github.com/frodorik-fronkonstin/express-boilerplate.git
+git clone https://github.com/amaliasgdev/express-boilerplate.git
 
 2 - Lanzamos el comando npm install
 
