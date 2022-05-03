@@ -1,1 +1,6 @@
 https://cineclub-aa.web.app
+
+
+Cuentas logeo:
+Usuario normal=> logan@gmail.com / Contraseña: 12345
+Administrador=> admin@gmail.com / Contraseña: 12345
