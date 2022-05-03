@@ -1,0 +1,78 @@
+<!-- no hay mensajes -->
+<div *ngIf="hayMensajes">
+    NO HAY MENSAJES ENVIADOS
+</div>
+
+
+<div *ngIf="!hayMensajes">
+    <ul class="list-group mb-2" *ngFor="let mensaje of arrMensajes; let indice=index">
+
+        <li class="list-group-item d-block externo ">
+
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1"><span>REMITE: </span>{{mensaje.emisor | titlecase}}</h6>
+                <small class="fecha">{{formatoFecha(mensaje.fecha)}} , {{mensaje.fecha | date:'shortTime'}}</small>
+            </div>
+            <p class="mb-1"><span>Titulo: </span>{{mensaje.titulo}}</p>
+            <p *ngIf="mensaje.boolean" class="parrafo">{{mensaje.mensaje}}</p>
+
+            <!-- botones  -->
+            <small><button class="btn btn-primary btn-sm me-3" (click)="onClickLeer(indice)"><i class="bi bi-eye"></i> Leer</button></small>
+            <small><button class="btn btn-success btn-sm me-3" #modalButton type="button" (click)="open(mensaje.emisor_id, mensaje.emisor)"><i class="bi bi-pencil-square"></i> Responder</button></small>
+            <small><button class="btn btn-danger btn-sm" (click)="onClickBorrar(mensaje.id)"><i class="bi bi-trash3"></i> Borrar</button></small>
+
+            <!-- imagen -->
+            <div *ngIf="mensaje.imagen" class="foto">
+                <div class="imagen-foto" [ngStyle]="{
+            backgroundImage: 'url('+imgImagenUrl+mensaje.imagen+')',           
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',                
+            borderRadius: '50%',
+            border: '2px solid lightgray'}">
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+<!-- FORMULARIO DE ENVIO -->
+<div class="modal fade" tabindex="-1" #testModal id="testModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Mensaje a {{destName | titlecase}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formMensaje" (ngSubmit)="onSubmitMensaje()">
+                    <div class="mb-3">
+                        <label class="form-label">Titulo</label>
+                        <input type="text" class="form-control" formControlName="titulo">
+                        <p *ngIf="checkErrorsMessage('titulo', 'required')" class="error">
+                            Este campo es requerido
+                        </p>
+                        <p *ngIf="checkErrorsMessage('titulo', 'minlength')" class="error">
+                            Este campo debe tener al menos 5 caracteres
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mensaje</label>
+                        <textarea class="form-control" formControlName="mensaje"></textarea>
+                        <p *ngIf="checkErrorsMessage('mensaje', 'required')" class="error">
+                            Este campo es requerido
+                        </p>
+                        <p *ngIf="checkErrorsMessage('mensaje', 'minlength')" class="error">
+                            Este campo debe tener al menos 10 caracteres
+                        </p>
+                        <p *ngIf="checkErrorsMessage('mensaje', 'maxlength')" class="error">
+                            Este campo debe tener un máximo de 2500 caracteres
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-primary me-3" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal" [disabled]="!formMensaje.valid">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

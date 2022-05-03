@@ -1,0 +1,6 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="buscador">
+    <div class="d-flex">
+        <input type="text" class="form-control" placeholder="Título de la película" formControlName="titulo">
+        <input type="submit" value="Buscar" class="btn btn-outline-success ms-3 me-3">
+    </div>
+</form>

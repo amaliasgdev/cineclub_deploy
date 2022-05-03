@@ -1,0 +1,66 @@
+<div class="title">
+    <h1>RESULTADO BÚSQUEDA</h1>
+    <span>{{titulo}}</span>
+</div>
+<hr>
+
+<div class="contenedor">
+
+    <div class="peliculas">
+
+        <div class="pelicula" *ngFor="let pelicula of arrPeliculas">
+
+            <!-- parte de abajo de la tarjeta : imagen -->
+            <div class="arriba">
+
+                <div *ngIf="pelicula.poster_path" class="foto">
+                    <div [ngStyle]="{
+                backgroundImage: 'url('+imgUrl+pelicula.poster_path+')',
+                width: '100%',
+                height: '300px',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',                
+                borderRadius: '10px 10px 0 0'}">
+                    </div>
+                </div>
+            </div>
+
+            <!-- parte de abajo de la tarjeta -->
+            <div class="abajo">
+                <div class="titulo">
+                    <h4>{{ pelicula.title }}</h4>
+                </div>
+                <div class="fecha">
+                    <small class="d-block mb-3">{{formatoFecha(pelicula.fecha)}}</small>
+                    <small class="d-block">Rating TMDB: {{pelicula.vote_average}}</small>
+                    <small class="d-block">Rating CineBlog: {{pelicula.rating}}</small>
+                </div>
+                <!--  estrellas -->
+                <div class="star d-flex justify-content-center mt-4">
+                    <fa-icon [ngClass]="{shine: (pelicula.stars===1 || pelicula.stars === 2 || pelicula.stars=== 3 || pelicula.stars === 4 || pelicula.stars ===5)}" [icon]="faStar"></fa-icon>
+                    <fa-icon [ngClass]="{shine: (pelicula.stars === 2 || pelicula.stars=== 3 || pelicula.stars === 4 || pelicula.stars ===5)}" [icon]="faStar"></fa-icon>
+                    <fa-icon [ngClass]="{shine: (pelicula.stars=== 3 || pelicula.stars === 4 || pelicula.stars ===5)}" [icon]="faStar"></fa-icon>
+                    <fa-icon [ngClass]="{shine: (pelicula.stars === 4 || pelicula.stars ===5)}" [icon]="faStar"></fa-icon>
+                    <fa-icon [ngClass]="{shine: (pelicula.stars ===5)}" [icon]="faStar"></fa-icon>
+                </div>
+                <!-- botones -->
+                <div *ngIf="!admin" class="boton">
+                    <button (click)="onClickVer(pelicula.publicacionId)" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i>LEER</button>
+                </div>
+
+                <div *ngIf="admin" class="botones">
+                    <button (click)="onClickVer(pelicula.publicacionId)" class="btn btn-outline-success  btn-sm"><i class="bi bi-eye"></i></button>
+                    <button (click)="onClickBorrar(pelicula.publicacionId)" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="next">
+
+        </div>
+
+    </div>
+</div>

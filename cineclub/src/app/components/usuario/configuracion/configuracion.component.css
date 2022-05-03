@@ -1,0 +1,24 @@
+input.ng-valid.ng-touched {
+    border: 5px solid lightgreen;
+}
+
+input.ng-invalid.ng-touched {
+    border: 5px solid tomato;
+}
+
+.error {
+    color: tomato;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 529px) {
+    * {
+        font-size: x-small;
+    }
+    .botones{
+        display: flex;
+    }
+    .btn-sm {
+        font-size: x-small;
+    }
+}

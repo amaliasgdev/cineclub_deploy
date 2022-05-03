@@ -1,0 +1,173 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;700&display=swap');
+
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* .navbar{
+  height: 50px !important;
+}
+
+.form-control{
+  height: 30px !important;
+} 
+
+.buscador {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar{
+  width: 40px; 
+}
+
+.barra-menu {
+  width: 100%;
+  display: flex;
+  flex: wrap;
+}
+
+.izquierda {
+  width: 50%;
+}
+
+.derecha {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.navegador {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f8f9fa;
+}
+
+a {
+  color:#6c757d;
+}
+
+.home {
+  width: 50%;  
+  color: white;
+}
+
+.home ul {
+  display: flex;
+  align-items: center;  
+}
+
+.home ul li{
+  list-style: none;  
+}
+
+.buscador {
+width: 50%;
+display: flex;
+}
+
+.buscador ul{
+  display: flex;
+}
+
+.buscador ul li{
+  list-style: none;  
+}
+
+.avatar{
+  width: 40px; 
+}
+
+
+/* Escritorio pequeño / tablet */
+@media only screen and (min-width: 768px) and (max-width: 1070px){
+  .navegador {
+    display: flex;
+    flex-direction: column;    
+  }  
+  
+  .home {
+    width: 100%;  
+    display: flex; 
+    justify-content: center;  
+  }  
+  
+  .buscador {
+  width: 100%;
+  justify-content: center;
+  }
+
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+  .navegador {
+    display: flex;
+    flex-direction: column;    
+  }  
+  
+  .home {
+    width: 100%;  
+    display: flex; 
+    justify-content: center;  
+  }  
+  
+  .buscador {
+  width: 100%;
+  justify-content: center;
+  }
+}
+
+/* Teléfonos */
+@media only screen and (min-width: 530px) and (max-width: 575px){
+  .navegador {
+    display: flex;
+    flex-direction: column;    
+  }  
+  
+  .home {
+    width: 100%;  
+    display: flex; 
+    justify-content: center;  
+  }  
+  
+  .buscador {
+  width: 100%;
+  justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 529px) {
+  .navegador {
+    margin-left: 0;
+    display: flex;     
+  }  
+  
+  .home {
+    width: 100%;  
+    display: flex; 
+    justify-content: center;  
+  }  
+
+  .ul-navegador {
+    padding-left: 0;
+  }
+  .buscador {    
+    width: 100%;
+       
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+.form-control-sm{
+  width: 80px !important;
+}
+
+}

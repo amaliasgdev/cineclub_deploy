@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;700&display=swap');
+
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor {
+    width: 500px;
+    display: flex;
+    flex-direction: column;    
+    border: 1px solid lightgray;
+    border-radius: 15px;   
+}
+
+.titulo {
+    background-color: rgb(3,37,65);
+    background: linear-gradient(180deg, rgba(3,37,65,1) 0%, rgba(2,109,147,1) 100%);
+    text-align: center;  
+    color: white;  
+    border-radius: 15px 15px 0 0px;    
+}
+
+.formulario{
+    padding: 25px;
+}
+
+input.ng-valid.ng-touched {
+    border: 2px solid lightgreen;
+}
+
+input.ng-invalid.ng-touched {
+    border: 2px solid tomato;
+}
+
+.error {
+    color: tomato;
+    font-size: 12px;
+}
+
+
+
+
+

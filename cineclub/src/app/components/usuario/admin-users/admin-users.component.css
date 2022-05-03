@@ -1,0 +1,14 @@
+span {
+    color: gray;
+}
+
+.post{
+    position: relative;
+}
+
+.avatar{
+    position: absolute;
+    width:75px;
+    right: 10px;
+    top: 10px;
+}

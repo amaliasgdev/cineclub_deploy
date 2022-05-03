@@ -1,0 +1,43 @@
+<body>
+
+    <div class="login-container">
+        <img src="../../../assets/image/palomita.png" alt="imagen de tiket de cine">
+
+        <div class="fields">
+            <!-- formulario -->
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+                <div class="data">
+                    <i class="bi bi-person-circle"></i>
+                    <input type="text" formControlName="email" placeholder="Email">
+                </div>
+                <div class="data">
+                    <i class="bi bi-lock-fill"></i>
+                    <input type="password" formControlName="password" placeholder="Password">
+                </div>
+
+                <input type="submit" value="Enviar" class="btn btn-info w-100" [disabled]="!formulario.valid">
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- mostrar errores -->
+    <div class="errores">
+        <p class="error" *ngIf="checkError('email', 'required')">
+            El campo email es requerido
+        </p>
+        <p class="error" *ngIf="checkError('email', 'pattern')">
+            El email no tiene el formato correcto
+        </p>
+        <p class="error" *ngIf="checkError('password', 'required')">
+            El campo password es requerido
+        </p>
+        <p class="error" *ngIf="checkError('password', 'pattern')">
+            El password no tiene el formato correcto
+        </p>
+    </div>
+
+
+</body>

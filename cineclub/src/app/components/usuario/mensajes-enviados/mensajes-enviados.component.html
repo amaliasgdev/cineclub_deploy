@@ -1,0 +1,36 @@
+<!-- no hay mensajes -->
+<div *ngIf="hayMensajes">
+    NO HAY MENSAJES ENVIADOS
+</div>
+
+
+<div *ngIf="!hayMensajes">
+    <ul class="list-group mb-2" *ngFor="let mensaje of arrMensajes; let indice=index">
+
+        <li class="list-group-item d-block externo ">
+
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1"><span>DESTINATARIO: </span>{{mensaje.receptor | titlecase}}</h6>
+                <small class="fecha">{{formatoFecha(mensaje.fecha)}} , {{mensaje.fecha | date:'shortTime'}}</small>
+            </div>
+            <p class="mb-1"><span>Titulo: </span>{{mensaje.titulo}}</p>
+            <p *ngIf="mensaje.boolean" class="parrafo">{{mensaje.mensaje}}</p>
+
+            <!--  botones -->
+            <small><button class="btn btn-primary btn-sm me-3" (click)="onClickLeer(indice)"><i class="bi bi-eye"></i> Leer Mensaje</button></small>
+            <small><button class="btn btn-sm btn-danger" (click)="onClickBorrar(mensaje.id)"><i class="bi bi-trash3"></i> Borrar</button></small>
+
+            <!-- imagen -->
+            <div *ngIf="mensaje.imagen" class="foto">
+                <div class="imagen-foto" [ngStyle]="{
+            backgroundImage: 'url('+imgImagenUrl+mensaje.imagen+')',           
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',                
+            borderRadius: '50%',
+            border: '2px solid lightgray'}">
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>

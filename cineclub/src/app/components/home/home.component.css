@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;700&display=swap');
+
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1 {
+    color: black;
+}
+
+
+.title{
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.contenedor {
+    margin-bottom: 50px;
+}
+
+.peliculas {    
+    display: flex;       
+    flex-wrap: wrap;
+    justify-content:center;        
+}
+
+.pelicula {       
+    background-color: white;
+    width: calc(18% - 20px);
+    height: 535px;
+    margin: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+}
+
+.pelicula:hover{
+   transform: scale(1.05);
+   box-shadow: 10px 0px 30px -15px rgba(0,0,0,0.5);   
+   transition: 1s;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+small {
+    font-size: 12px;
+}
+
+.arriba{
+    height: 300px;
+}
+
+.foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.abajo{
+    height: 200px;  
+    padding: 10px;  
+}
+
+
+.titulo {
+    height: 60px;   
+}
+
+.fecha {
+    height: 60px;   
+}
+
+.botones{
+    height: 60px;   
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+
+.boton{
+    height: 60px;   
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+
+.paginacion{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.shine {
+    color: gold;
+  }
+  
+
+/* Escritorio pequeño / tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+       .pelicula {           
+        width: calc(25% - 20px);      
+    }
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+  
+    .pelicula {   
+        width: calc(33.333% - 20px);        
+    }
+}
+
+/* Teléfonos */
+@media only screen and (min-width: 530px) and (max-width: 575px){
+  
+    .pelicula {   
+        width: calc(50% - 20px);        
+    }
+}
+
+@media only screen and (max-width: 529px) {
+  
+    .pelicula {   
+        width: calc(50% - 20px);        
+    }
+}

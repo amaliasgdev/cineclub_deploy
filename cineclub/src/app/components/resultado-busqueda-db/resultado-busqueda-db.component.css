@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;700&display=swap');
+
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1 {
+    color: black;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.peliculas {    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pelicula {
+    background-color: white;
+    width: calc(18% - 20px);
+    height: 535px;
+    margin: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+}
+
+.arriba{
+    height: 300px;
+}
+
+.abajo{
+    height: 200px;  
+    padding: 10px;  
+}
+
+
+.titulo {
+    height: 60px;   
+}
+
+.fecha {
+    height: 60px;   
+}
+
+.botones{
+    height: 60px;   
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.boton{
+    height: 60px;   
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+ 
+h4 {
+    font-size: 15px;
+}
+
+small {
+    font-size: 12px;
+}
+
+
+.foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next {
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: first baseline;
+}
+
+.shine {
+    color: gold;
+  }
+  
+
+  /* Escritorio pequeño / tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .pelicula {           
+        width: calc(25% - 20px);      
+    }
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .pelicula {   
+        width: calc(33.333% - 20px);        
+    }
+}
+
+/* Teléfonos */
+@media only screen and (max-width: 575px){
+    .pelicula {  
+        width: calc(50% - 20px);      
+    }
+}

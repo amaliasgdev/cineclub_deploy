@@ -1,0 +1,117 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="barra-menu">
+
+        <div class="collapse navbar-collapse izquierda" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home" href="#"><i class="bi bi-house-fill"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <div *ngIf="!user">
+                        <a class="nav-link" routerLink="/login">Login</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!user" routerLink="/registro" href="#">Registro</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="derecha">
+            <ul class="navbar-nav ms-auto me-5">
+                <li class="nav-item mt-2">
+                    <div *ngIf="user">
+                        <a class="nav-link" *ngIf="user" (click)="onClickCerrar()" [routerLink]="['/home']">Salir <i class="bi bi-door-closed-fill"></i></a>
+                    </div>
+                </li>
+                <li class="nav-item  mt-2">
+                    <a class="nav-link" *ngIf="user" [routerLink]="['/usuarios']">{{username | titlecase}}</a>
+                </li>
+
+                <li>
+                    <div *ngIf="imagen" class="avatar mt-2 me-3">
+                        <div [ngStyle]="{
+                backgroundImage: 'url('+imgImagenUrl+imagen+')',                  
+                width: '100%',
+                height: '40px',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',                
+                borderRadius: '50%',
+                border: '2px solid lightgray'}">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="buscador">
+                        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control-sm icono-busqueda" placeholder="Titulo" formControlName="titulo">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</nav> -->
+
+
+<div class="navegador">
+    <div class="home mt-2">
+        <ul>
+            <li>
+                <a class="nav-link" routerLink="/home" href="#"><i class="bi bi-house-fill"></i> Home</a>
+            </li>
+            <li>
+                <div *ngIf="!user">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </div>
+            </li>
+            <li>
+                <a class="nav-link" *ngIf="!user" routerLink="/registro" href="#">Registro</a>
+            </li>
+        </ul>
+    </div>
+    <div class="buscador">
+        <ul class="ul-navegador">
+            <li class="nav-item mt-2">
+                <div *ngIf="user">
+                    <a class="nav-link" *ngIf="user" (click)="onClickCerrar()" [routerLink]="['/home']">Salir <i class="bi bi-door-closed-fill"></i></a>
+                </div>
+            </li>
+            <li class="nav-item  mt-2">
+                <a class="nav-link" *ngIf="user" [routerLink]="['/usuarios']">{{username | titlecase}}</a>
+            </li>
+
+            <li>
+                <div *ngIf="imagen" class="avatar mt-2 me-3">
+                    <div [ngStyle]="{
+            backgroundImage: 'url('+imgImagenUrl+imagen+')',                  
+            width: '100%',
+            height: '40px',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',                
+            borderRadius: '50%',
+            border: '2px solid lightgray'}">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="mt-2">
+                    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                        <div class="input-group">
+                            <input type="text" class="form-control-sm" placeholder="Titulo" formControlName="titulo">
+                            <button class="btn btn-outline-secondary btn-sm boton" type="submit" id="button-addon2">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

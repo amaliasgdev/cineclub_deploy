@@ -1,0 +1,75 @@
+<!-- no hay mensajes -->
+<div *ngIf="hayPosts">
+    NO HAY POST
+</div>
+
+<!-- hay mensajes -->
+<div *ngIf="!hayPosts" class="contenedor">
+
+    <div class="card mb-2 externo" *ngFor="let post of arrPost; let indice=index">
+
+        <div class="card-header">
+            {{formatoFecha(post.fecha)}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{post.titulo}}</h5>
+            <p class="card-text parrafo">{{post.texto}}</p>
+            <div class="botones">
+                <button class="btn btn-primary btn-sm me-3" (click)="onClickPost(post.publicacion_id)"><i class="bi bi-arrow-right"></i> Ir al post</button>
+                <button class="btn btn-success btn-sm me-3" #modalButton (click)="open(post.id)"><i class="bi bi-pencil-square"></i> Modificar</button>
+                <button class="btn btn-danger btn-sm" (click)="onClickBorrar(post.id)"><i class="bi bi-trash3"></i>Eliminar</button>
+            </div>
+        </div>
+
+        <div *ngIf="post.imagen" class="foto">
+            <div class="imagen-foto" [ngStyle]="{
+            backgroundImage: 'url('+imgUrl+post.imagen+')',            
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',                
+            borderRadius: '10px'}">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FORMULARIO DE MODIFICACION DE POST -->
+<div class="modal fade" tabindex="-1" #testModal id="testModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modificar Entrada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div *ngIf="formMensaje" class="modal-body">
+                <form [formGroup]="formMensaje" (ngSubmit)="onSubmitModificacion()">
+                    <div class="mb-3">
+                        <label class="form-label">Titulo</label>
+                        <input type="text" class="form-control" formControlName="titulo">
+                        <p *ngIf="checkErrorsMessage('titulo', 'required')" class="error">
+                            Este campo es requerido
+                        </p>
+                        <p *ngIf="checkErrorsMessage('titulo', 'minlength')" class="error">
+                            Este campo debe tener al menos 5 caracteres
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Texto del Post</label>
+                        <textarea class="form-control" formControlName="texto"></textarea>
+                        <p *ngIf="checkErrorsMessage('texto', 'required')" class="error">
+                            Este campo es requerido
+                        </p>
+                        <p *ngIf="checkErrorsMessage('texto', 'minlength')" class="error">
+                            Este campo debe tener al menos 10 caracteres
+                        </p>
+                        <p *ngIf="checkErrorsMessage('texto', 'maxlength')" class="error">
+                            El texto es demasiado largo (max 2500 caracteres)
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-primary me-3" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal" [disabled]="!formMensaje.valid">Modificar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

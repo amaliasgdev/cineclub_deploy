@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;700&display=swap');
+
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+input.ng-valid.ng-touched {
+    border: 5px solid lightgreen;
+}
+
+input.ng-invalid.ng-touched {
+    border: 5px solid tomato;
+}
+
+.error {
+    color: tomato; 
+    font-size: 15px;
+}
+
+h3 {
+    color:#fff;
+}
+
+body{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {     
+    width: 500px;
+    height: 400px;        
+    background-color: rgb(3,37,65);
+    background: linear-gradient(180deg, rgba(3,37,65,1) 0%, rgba(2,109,147,1) 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.login-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 30px 0;
+    box-shadow: 0px 0px 0px 1px rgba(3,37,65,1), 0px 0px 0px 5px rgba(2,109,147,1), 8px 8px 15px #0f2027, -8px -8px 15px #203A43;
+}
+
+.login-container .fields .data{
+    border-radius: 20px;    
+    margin-bottom: 20px;
+}
+
+.login-container .fields .data i{
+    color: #fff;
+    margin: 20px 5px 20px 20px;
+}
+
+.login-container .fields .data input{
+    outline: none; 
+    border: none;
+    background: none;
+    font-size: 15px;
+    padding: 20px 20px 20px 5px;
+    color: #fff;
+}
+
+
+

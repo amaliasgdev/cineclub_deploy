@@ -1,0 +1,111 @@
+input.ng-valid.ng-touched {
+    border: 5px solid lightgreen;
+}
+
+input.ng-invalid.ng-touched {
+    border: 5px solid tomato;
+}
+
+.error {
+    color: tomato;
+    font-size: 12px;
+}
+
+span{
+    color: grey;
+}
+
+.parrafo{
+    width: 90%;
+    text-align: justify;
+}
+
+.externo{
+    position: relative;    
+}
+
+.foto{
+    position: absolute;
+    width:60px;
+    right:15px;
+    top: 25px;
+}
+
+.imagen-foto{
+    width: 100%;
+    height: 60px;
+}
+
+
+/* Escritorio pequeño / tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .parrafo{
+        width: 87%;
+    }   
+    .foto{       
+        width:60px;
+        right:15px;
+        
+    }    
+    .imagen-foto{       
+        height: 60px;
+    }
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .parrafo{
+        width: 85%;
+    }      
+    .foto{       
+        width:60px;
+        right:8px;       
+    }
+    
+    .imagen-foto{      
+        height: 60px;
+    }
+}
+
+/* Teléfonos */
+@media only screen and (min-width: 530px) and (max-width: 575px){
+    .parrafo{
+        width: 85%; 
+        font-size: small;       
+    }
+    .foto{       
+        width:50px;
+        right:15px;       
+    }
+    
+    .imagen-foto{       
+        height: 50px;
+    } 
+
+    .btn-sm{
+        font-size: x-small;
+    }
+}
+
+@media only screen and (max-width: 529px) {
+    
+    .parrafo{
+        width: 100%;        
+        font-size: x-small;
+    }
+    .fecha{
+        font-size: xx-small;
+    }
+    .foto{       
+        width:40px;
+        right:15px;       
+    }
+    
+    .imagen-foto{       
+        height: 40px;
+    } 
+
+    .btn-sm{
+        font-size: x-small;
+    }
+}

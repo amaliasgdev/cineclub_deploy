@@ -1,0 +1,119 @@
+<div *ngIf="user" class="container">
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th scope="row">Username</th>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Password</th>
+                <td type="password">*****************</td>
+            </tr>
+            <tr>
+                <th scope="row">Rol</th>
+                <td>{{user.rol}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="botones">
+        <button class="btn btn-outline-dark btn-sm me-3" #datosModal type="button" (click)="open()">Modificar Datos</button>
+        <button class="btn btn-outline-dark btn-sm" #imagenModal type="button" (click)="openImagen()">Modificar Imagen</button>
+    </div>
+
+
+
+
+    <div class="modal fade" tabindex="-1" id="datosModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Datos personales</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div *ngIf="formulario" class="modal-body">
+                    <!-- FORMULARIO MODAL -->
+                    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" formControlName="username">
+                            <p class="error" *ngIf="checkError('username', 'required')">
+                                El campo username es requerido
+                            </p>
+                            <p class="error" *ngIf="checkError('username', 'minlength')">
+                                El campo debe tener al menos 3 caracteres
+                            </p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" formControlName="email">
+                            <p class="error" *ngIf="checkError('email', 'required')">
+                                El campo email es requerido
+                            </p>
+                            <p class="error" *ngIf="checkError('email', 'pattern')">
+                                El email no tiene el formato correcto
+                            </p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="password">
+                            <p class="error" *ngIf="checkError('password', 'required')">
+                                El campo password es requerido
+                            </p>
+                            <p class="error" *ngIf="checkError('password', 'pattern')">
+                                El password no tiene el formato correcto
+                            </p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Repite password</label>
+                            <input type="password" class="form-control" formControlName="repite_password">
+                            <p class="error" *ngIf="checkError('repite_password', 'required')">
+                                El campo password es requerido
+                            </p>
+                            <p class="error" *ngIf="checkError('repite_password', 'pattern')">
+                                El password no tiene el formato correcto
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-primary me-3" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-warning" data-bs-dismiss="modal" [disabled]="!formulario.valid">Enviar</button>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="imagenModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cambiar Imagen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div *ngIf="formularioImagen" class="modal-body">
+
+                    <form [formGroup]="formularioImagen" (ngSubmit)="onSubmitImagen()">
+                        <div class="mb-1">
+                            <input type="file" class="form-control" (change)="onChange($event)" placeholder="Selecciona la imagen">
+                        </div>
+                        <button type="button" class="btn btn-primary me-3" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Enviar</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

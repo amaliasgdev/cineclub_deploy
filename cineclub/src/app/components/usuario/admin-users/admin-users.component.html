@@ -1,0 +1,23 @@
+<ul class="list-group mb-2" *ngFor="let usuario of arrUsuarios">
+    <li class="list-group-item d-block">
+        <p><span>USERNAME: </span>{{usuario.username | titlecase}}</p>
+        <p><span>EMAIL: </span>{{usuario.email}}</p>
+        <p><span>ROL: </span>{{usuario.rol | titlecase}}</p>
+        <div class="botones d-flex">
+            <button class="btn btn-danger btn-sm me-3" (click)="onClickEliminar(usuario.id)">Eliminar</button>
+            <button *ngIf="usuario.rol==='user'" class="btn btn-primary btn-sm me-3" (click)="onClick(usuario.id, usuario.rol)">Cambiar a Administrador</button>
+            <button *ngIf="usuario.rol==='admin'" class="btn btn-success btn-sm" (click)="onClick(usuario.id, usuario.rol)">Cambiar a Usuario</button>
+        </div>
+        <div class="avatar">
+            <div [ngStyle]="{
+        backgroundImage: 'url('+imgImagenUrl+usuario.imagen+')',        
+        width: '100%',
+        height: '75px',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',                
+        borderRadius: '50%',
+        border: '2px solid lightgray'}">
+            </div>
+        </div>
+    </li>
+</ul>

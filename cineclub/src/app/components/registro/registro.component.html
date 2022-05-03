@@ -1,0 +1,70 @@
+<body>
+
+    <div class="d-flex justify-content-center align-content-center">
+
+        <div class="contenedor">
+
+            <div class="titulo">
+                <h2 class="my-4">Formulario de Registro</h2>
+            </div>
+
+            <div class="formulario">
+
+                <form [formGroup]="formulario" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+
+                    <div class="mb-1">
+                        <input type="text" class="form-control" formControlName="username" placeholder="Username">
+                        <p class="error" *ngIf="checkError('username', 'required')">
+                            El campo username es requerido
+                        </p>
+                        <p class="error" *ngIf="checkError('username', 'minlength')">
+                            El campo debe tener al menos 3 caracteres
+                        </p>
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                        <p class="error" *ngIf="checkError('email', 'required')">
+                            El campo email es requerido
+                        </p>
+                        <p class="error" *ngIf="checkError('email', 'pattern')">
+                            El email no tiene el formato correcto
+                        </p>
+                    </div>
+
+                    <div class="mb-1">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                        <p class="error" *ngIf="checkError('password', 'required')">
+                            El campo password es requerido
+                        </p>
+                        <p class="error" *ngIf="checkError('password', 'pattern')">
+                            El password no tiene el formato correcto
+                        </p>
+                    </div>
+
+                    <div class="mb-1">
+                        <input type="password" class="form-control" formControlName="repite_password" placeholder="Repite password">
+                        <p class="error" *ngIf="checkError('repite_password', 'required')">
+                            El campo password es requerido
+                        </p>
+                        <p class="error" *ngIf="checkError('repite_password', 'pattern')">
+                            El password no tiene el formato correcto
+                        </p>
+                    </div>
+
+                    <!-- ////////////////PRUEBA/////////////////////////// -->
+                    <div class="mb-1">
+                        <input type="file" class="form-control" (change)="onChange($event)" placeholder="Selecciona la imagen">
+                    </div>
+                    <!-- /////////////////////////////////////////// -->
+
+                    <input type="submit" value="Enviar" class="btn btn-info w-100 mt-3" [disabled]="!formulario.valid">
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
